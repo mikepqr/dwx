@@ -76,8 +76,9 @@ Lambda deployment.
    the environment variables using your API keys and location.
  - If you want to tweet at a local time other than 07:30am, edit `post_time` in
    `tweet.py` and set the first number in the cron schedule to the minute of
-   your chosen time. E.g. if you want to tweet at 9:11 every day, set `
-   "expression": "cron(11 * * * ? *)"`
+   your chosen time. E.g. if you want to tweet at 03:14am every day, set
+   `post_time = datetime.time(3, 14)` in `tweet.py` and ` "expression":
+   "cron(14 * * * ? *)"` in `zappa_secttings.json`.
  - Deploy and monitor with zappa
    ```bash
    $ zappa deploy dev
