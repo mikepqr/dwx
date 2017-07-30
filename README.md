@@ -37,9 +37,9 @@ See [@dwxnyc](https://twitter.com/dwxnyc) and
    Saturday. Mostly cloudy until evening. High of 75 (a little cooler than yesterday).
    ```
 
-## Deployment of a Twitter bot that posts daily on AWS Lambda with zappa
+## AWS Lambda/zappa deployment of a Twitter bot that posts daily
 
-AWS Lambda is an inexpensive way to post the output of `dwx.describe_weather()`
+AWS Lambda is an inexpensive way to post the output of `dwx.describe_wx()`
 to Twitter once per day. [zappa ](https://github.com/Miserlou/Zappa) simplifies
 Lambda deployment.
 
