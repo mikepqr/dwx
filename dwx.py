@@ -52,8 +52,7 @@ def get_wx(date=None, offset=0):
 
 def make_sentence(st):
     """Capitalize and add a full stop to a string."""
-    st = st.strip()
-    st = st[0].upper() + st[1:]
+    st = st.strip().capitalize()
     return st + ('' if st.endswith('.') else '.')
 
 
