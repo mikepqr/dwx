@@ -19,20 +19,20 @@ See [@dwxnyc](https://twitter.com/dwxnyc) and
 
  - _Optional but recommended_: create and activate a Python 3.6+ virtualenv,
    e.g.
-   ```bash
-   python3 -m virtualenv venv
-   source venv/bin/activate
+   ```
+   $ python3 -m virtualenv venv
+   $ source venv/bin/activate
    ```
  - Install `pytz` and `requests` (e.g. `pip install -r requirements.txt`)
  - Add your Dark Sky API key, and the latitude, longitude and timezone of the location to your environment, e.g. for Central Park
-   ```bash
-   export DS_KY="..."
-   export DWX_LATITUDE="40.782222"
-   export DWX_LONGITUDE="-73.965278"
-   export DWX_TZ="US/Eastern"
+   ```
+   $ export DS_KY="..."
+   $ export DWX_LATITUDE="40.782222"
+   $ export DWX_LONGITUDE="-73.965278"
+   $ export DWX_TZ="US/Eastern"
    ```
  - Then run:
-   ```bash
+   ```
    $ python dwx.py
    Saturday. Mostly cloudy until evening. High of 75 (a little cooler than yesterday).
    ```
