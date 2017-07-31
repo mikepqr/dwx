@@ -14,20 +14,20 @@ def post_time_today(dt):
                       second=0, microsecond=0)
 
 
-def times():
+def get_times():
     """Return time in server timezone, local time in location timezone, and
     target post_time in location timezone."""
     server = datetime.datetime.now().astimezone()
     local = server.astimezone(dwx.dwx_tz())
     target = post_time_today(local)
-    return server, local, target
+    return {'server': server, 'local': local, 'target': target}
 
 
 def check_time():
     """Return True if within post_time_tol_seconds of post_time in timezone of
     location."""
-    sever, local, target = times()
-    time_difference = abs((local - target).total_seconds())
+    times = get_times()
+    time_difference = abs((times['local'] - times['target']).total_seconds())
     return time_difference < post_time_tol_seconds
 
 
@@ -44,14 +44,12 @@ def post(tweet):
     api.update_status(tweet)
 
 
-def format_times(server, local, target):
-    return '\n'.join([f"Server: {server}",
-                      f"Local: {local}",
-                      f"Target: {target}"])
+def format_times(times):
+    return {k: str(v) for k, v in times.items()}
 
 
 def check_time_and_post():
-    print(format_times(*times()))
+    print(format_times(get_times()))
     if check_time():
         tweet = dwx.describe_wx()
         post(tweet)
