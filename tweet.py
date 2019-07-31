@@ -3,7 +3,7 @@ import os
 import tweepy
 import dwx
 
-post_time = datetime.time(7, 30)
+post_time = datetime.time(7, 00)  # 7am local time
 post_time_tol_seconds = 5 * 60
 
 

@@ -55,7 +55,7 @@ Lambda deployment.
            "s3_bucket": "zappa-abcdefg123",
            "events": [{
               "function": "tweet.check_time_and_post",
-              "expression": "cron(30 * * * ? *)"
+              "expression": "cron(0 * * * ? *)"
            }],
            "environment_variables": {
                "DS_KEY": "...",
@@ -74,11 +74,12 @@ Lambda deployment.
    `~/.aws/credentials`). Set `s3_bucket` to something unique (this bucket is
    used for uploading the application but is otherwise left empty). Configure
    the environment variables using your API keys and location.
- - If you want to tweet at a local time other than 07:30am, edit `post_time` in
+ - If you want to tweet at a local time other than 7am, edit `post_time` in
    `tweet.py` and set the first number in the cron schedule to the minute of
    your chosen time. E.g. if you want to tweet at 03:14am every day, set
    `post_time = datetime.time(3, 14)` in `tweet.py` and ` "expression":
-   "cron(14 * * * ? *)"` in `zappa_secttings.json`.
+   "cron(14 * * * ? *)"` in `zappa_settings.json` (see [this
+   issue](https://github.com/williamsmj/dwx/issues/1)).
  - Deploy and monitor with zappa
    ```bash
    $ zappa deploy dev
